@@ -16,7 +16,7 @@
 }
 
 .wrapper > h3{
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 36px;
     color: #222;
     font-weight: bold;
@@ -25,7 +25,7 @@
 .wrapper > .blogs{
     display: flex;
     align-items: center;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 /* left */
@@ -36,15 +36,16 @@
 
 .left > .mainBlog{
     height: 100%;
-    position: relative;
+    position: mainBlog;
 }
 
-.left > .mainBlog > img{
-    height: 100%;
+.left > .mainBlog > .blog > a > img {
+    height: 550px;
     width: 100%;
     object-fit: cover;
     position: relative;
 }
+
 
 .categoryAndMetadata{
     display: flex;
@@ -65,7 +66,7 @@
     gap: 0.25rem;
 }
 
-.left > .mainBlog > .mainBlogData{
+.left > .mainBlog > .blog > .mainBlogData{
     position: absolute;
     bottom: 2.5rem;
     color: #fff;
@@ -109,12 +110,13 @@
     position: relative;
 }
 
-.right > .secondaryBlog > img{
-    height: 100%;
+.right > .secondaryBlog > .blog > a > img{
+    height: 248px;
     width: 100%;
     object-fit: cover;
     position: relative;
 }
+
 
 .secondaryBlogData{
     width: 100%;

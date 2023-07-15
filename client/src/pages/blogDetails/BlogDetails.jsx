@@ -7,7 +7,7 @@ import { request } from '../../utils/fetchApi'
 import Footer from '../../components/footer/Footer'
 import Navbar from '../../components/navbar/Navbar'
 import { format } from 'timeago.js'
-import { AiFillEdit, AiFillLike, AiFillDelete, AiOutlineArrowRight, AiOutlineLike } from 'react-icons/ai'
+import { AiFillEdit, AiFillLike, AiFillDelete, AiOutlineArrowRight, AiOutlineLike, AiOutlineEye,  } from 'react-icons/ai'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 
 const BlogDetails = () => {
@@ -64,8 +64,8 @@ const BlogDetails = () => {
         <div className={classes.wrapper}>
           <img src={`http://localhost:5000/images/${blogDetails?.photo}`} />
           <div className={classes.likesAndViews}>
-              <span>{blogDetails?.views} views</span>
-              <span>{blogDetails?.likes?.length} likes</span>
+              <span className={classes.views}>{blogDetails?.views} <AiOutlineEye/></span>
+              <span className={classes.likes}>{blogDetails?.likes?.length} <AiFillLike/></span>
           </div>
           <div className={classes.titleAndControls}>
             <h3 className={classes.title}>{blogDetails?.title}</h3>

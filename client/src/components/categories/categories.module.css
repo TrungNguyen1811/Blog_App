@@ -16,8 +16,8 @@
 
 .wrapper>h3 {
     font-size: 28px;
-    margin: 3rem 0;
-    margin-top: 7.5rem;
+    margin: 2rem 0;
+    margin-top: 6rem;
     
 }
 
@@ -53,34 +53,36 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 5rem;
+    gap: 1rem;
 }
 
 .blog {
     width: 550px;
-    height: 350px;
+    min-height: 350px; 
     position: relative;
-    margin-bottom: 2.5rem;
 }
 
 .blog>a>img {
-    height: 100%;
+    height: 300px;
     width: 100%;
 }
 
 .categoryAndMetadata {
-    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-bottom: 1.25rem;
+    background-color: #444;
+    color: rgb(206, 197, 197);
 }
 
 .blog .category {
+    margin-left: 1rem;
     cursor: pointer;
     border-radius: 12px;
     padding: 0.25rem 1.5rem;
-    border: 1px solid #222;
+    border: 1px solid rgb(206, 197, 197);
     text-transform: capitalize;
 }
 
@@ -92,7 +94,6 @@
 
 .blogs>.blog>.blogData {
     color: #000;
-    padding: 0 1rem;
 }
 
 .blogs>.blog>.blogData>h4 {
@@ -110,15 +111,28 @@
 
 /* top right bottom left */
 
+.intro {
+    background-color: #969696;
+}
+
+.intro>h3 {
+    padding: 1rem 0 0 1rem;
+    color: #ebe5e5;
+}
 .authorAndCreatedAt {
     display: flex;
     justify-content: space-between;
-    color: #444;
+    color: #969696;
+}
+
+.authorAndCreatedAt>span {
+    padding: 1rem;
+    color: #9cddf5;
 }
 
 .authorAndCreatedAt>span>span {
     font-size: 17px;
-    color: #000;
+    color: #ebe5e5;
     font-weight: bold;
 }
 
@@ -143,3 +157,32 @@
     font-weight: bold;
     color: #222;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .paginationList {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+  }
+  
+  .paginationButton {
+    border: none;
+    background-color: transparent;
+    color: #222;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: 150ms all ease;
+  }
+  
+  .paginationButton:hover,
+  .paginationButton.active {
+    background-color: #222;
+    color: #fff;
+  }

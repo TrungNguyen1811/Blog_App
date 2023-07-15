@@ -21,12 +21,20 @@ const Navbar = () => {
         <div className={classes.left}>
           <Link to='/'>Blog Note</Link>
         </div>
-        <ul className={classes.center}>
+        <nav>
+          <ul className={classes.center}>
+            <li className={classes.listItem}><a href='/' className={classes.listItem}>Home</a></li>
+            <li className={classes.listItem}><a href='#About' className={classes.listItem}>About</a></li>
+            <li className={classes.listItem}><a href='#Newsletter' className={classes.listItem}>Contacts</a></li>
+            <li className={classes.listItem}><a href='#Categories' className={classes.listItem}>Categories</a></li>
+          </ul>
+        </nav>
+        {/* <ul className={classes.center}>
           <li className={classes.listItem}><Link to='/' className={classes.listItem}>Home</Link></li>
           <li className={classes.listItem}><Link to='/FeaturedBlogs' className={classes.listItem}>About</Link></li>
           <li className={classes.listItem}><Link to='/Newsletter' className={classes.listItem}>Contacts</Link></li>
           <li className={classes.listItem}><Link to='/Categories' className={classes.listItem}>Categories</Link></li>
-        </ul>
+        </ul> */}
         <div className={classes.right}>
           <img onClick={() => setShowModal(prev => !prev)} src={avt} className={classes.img} />
           {showModal &&

@@ -23,6 +23,8 @@ const Categories = () => {
     'fun',
     'fashion'
   ]
+  const [currentPage, setCurrentPage] = useState(1);
+  const [blogsPerPage] = useState(4);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -38,7 +40,7 @@ const Categories = () => {
   }, [])
 
   useEffect(() => {
-    if(activeCategory === 'all'){
+    if (activeCategory === 'all') {
       setFilteredBlogs(blogs)
     } else {
       setFilteredBlogs((prev) => {
@@ -49,6 +51,13 @@ const Categories = () => {
     }
   }, [activeCategory])
 
+  // Get current blogs
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className={classes.container}>
@@ -58,51 +67,80 @@ const Categories = () => {
           <div className={classes.categories}>
             {categories.map((category) => (
               <span
-                key={crypto.randomUUID()}
+                key={category}
                 className={`${classes.category} ${activeCategory === category && classes.active}`}
-                onClick={() => setActiveCategory(prev => category)}
+                onClick={() => setActiveCategory(category)}
               >
                 {category}
               </span>
             ))}
           </div>
-          {filteredBlogs?.length > 0 ?
-            <div className={classes.blogs}>
-              {filteredBlogs?.map((blog) => (
-                <div key={blog._id} className={classes.blog}>
-                  <Link to={`/blogDetails/${blog?._id}`}>
-                    <img src={`http://localhost:5000/images/${blog?.photo}`} />
-                  </Link>
-                  <div className={classes.blogData}>
-                    <div className={classes.categoryAndMetadata}>
-                      <span className={classes.category}>{blog?.category}</span>
-                      <div className={classes.metadata}>
-                        <MdOutlinePreview /> {blog.views} views
-                      </div>
-                      <div className={classes.metadata}>
-                        <AiFillLike /> {blog?.likes?.length} likes
-                      </div>
-                    </div>
-                    <h4>{blog?.title}</h4>
-                    {/* <p className={classes.blogDesc}>
-                      {blog?.desc}
-                    </p> */}
-                    <div className={classes.authorAndCreatedAt}>
-                      <span><span>Author:</span> {blog?.userId?.username}</span>
-                      <span><span>Created:</span> {format(blog?.createdAt)}</span>
-                    </div>
-                    <Link to={`/blogDetails/${blog._id}`} className={classes.readMore}>
-                      Read More <FiArrowRight />
+          {filteredBlogs?.length > 0 ? (
+            <>
+              <div className={classes.blogs}>
+                {currentBlogs.map((blog) => (
+                  <div key={blog._id} className={classes.blog}>
+                    <Link to={`/blogDetails/${blog?._id}`}>
+                      <img src={`http://localhost:5000/images/${blog?.photo}`} alt={blog?.title} />
                     </Link>
+                    <div className={classes.blogData}>
+                      <div className={classes.categoryAndMetadata}>
+                        <span className={classes.category}>{blog?.category}</span>
+                        <div className={classes.metadata}>
+                          <MdOutlinePreview /> {blog.views} views
+                        </div>
+                        <div className={classes.metadata}>
+                          <AiFillLike /> {blog?.likes?.length} likes
+                        </div>
+                      </div>
+                      <div className={classes.intro}>
+                        <h3>{blog?.title}</h3>
+                        {/* <p className={classes.blogDesc}>
+                          {blog?.desc}
+                        </p> */}
+                        <div className={classes.authorAndCreatedAt}>
+                          <span><span>Author:</span> {blog?.userId?.username}</span>
+                          <span><span>Created:</span> {format(blog?.createdAt)}</span>
+                        </div>
+                      </div>
+                      <Link
+                        to={`/blogDetails/${blog._id}`}
+                        className={classes.readMore}
+                        onClick={(e) => {
+                          // Scroll the container back to the top
+                          e.document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+                        }}
+                      >
+                        Read More <FiArrowRight />
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-            : <h3 className={classes.noBlogsMessage}>No blogs</h3>}
+                ))}
+              </div>
+              <div className={classes.pagination}>
+                {blogs.length > blogsPerPage && (
+                  <ul className={classes.paginationList}>
+                    {Array.from({ length: Math.ceil(filteredBlogs.length / blogsPerPage) }).map((_, index) => (
+                      <li key={index}>
+                        <button
+                          className={`${classes.paginationButton} ${currentPage === index + 1 && classes.active}`}
+                          onClick={() => paginate(index + 1)}
+                        >
+                          {index + 1}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </>
+          ) : (
+            <h3 className={classes.noBlogsMessage}>No blogs</h3>
+          )}
         </div>
       </div>
     </div>
   )
 }
 
-export default Categories
+export default Categories;

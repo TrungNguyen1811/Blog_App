@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <FeaturedBlogs />
-      <Categories />
-      <Newsletter />
-      <Footer />
+      <setion id="FeaturedBlogs"><FeaturedBlogs /></setion>
+      <section id='Categories'><Categories /></section>
+      <section id='Newsletter'><Newsletter /></section>
+      <section id='About'> <Footer /></section>
     </div>
   )
 }
