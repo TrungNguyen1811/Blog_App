@@ -116,3 +116,11 @@
     color: #000;
     font-weight: bold;
 }
+.views {
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+}
+.likes {
+    font-weight: bold;
+    color: blue;
+}

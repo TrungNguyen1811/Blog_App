@@ -63,6 +63,10 @@ const BlogDetails = () => {
         </Link>
         <div className={classes.wrapper}>
           <img src={`http://localhost:5000/images/${blogDetails?.photo}`} />
+          <div className={classes.likesAndViews}>
+              <span>{blogDetails?.views} views</span>
+              <span>{blogDetails?.likes?.length} likes</span>
+          </div>
           <div className={classes.titleAndControls}>
             <h3 className={classes.title}>{blogDetails?.title}</h3>
             {blogDetails?.userId?._id === user._id ?
@@ -93,10 +97,6 @@ const BlogDetails = () => {
               <span>Description: </span>
               {blogDetails?.desc}
             </p>
-            <div className={classes.likesAndViews}>
-              <span>{blogDetails?.views} views</span>
-              <span>{blogDetails?.likes?.length} likes</span>
-            </div>
           </div>
           <div className={classes.authorAndCreatedAt}>
             <span><span>Author:</span> {blogDetails?.userId?.username}</span>
