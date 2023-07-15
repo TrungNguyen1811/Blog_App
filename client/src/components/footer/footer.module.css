@@ -1,0 +1,36 @@
+footer{
+    width: 100%;
+    height: 300px;
+    margin-top: 10rem;
+    background-color: #000000;
+}
+
+
+.wrapper{
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #fff;
+}
+
+.col > h2{
+    margin-bottom: 15px;
+    justify-self: flex-start;
+    margin-left: -5px;
+    color: #fff;
+}
+
+.col > p{
+    max-width: 425px;
+    color: #fff;
+    font-size: 15px;
+}
