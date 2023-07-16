@@ -87,13 +87,18 @@
 .authorAndCreatedAt{
     display: flex;
     justify-content: space-between;
+    color: #efefef;
+    font-weight: bold;
+
 }
+
 
 .left > .mainBlog > .mainBlogData > .authorAndCreatedAt > span > span{
     font-size: 17px;
     color: #efefef;
     font-weight: bold;
 }
+
 
 /* right */
 .right{

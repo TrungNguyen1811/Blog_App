@@ -5,7 +5,6 @@ import { request } from '../../utils/fetchApi'
 import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
 import classes from './featuredBlogs.module.css'
-import mountainImg2 from '../../assets/mountain2.jpg'
 import {MdOutlinePreview} from 'react-icons/md'
 import {AiFillLike} from 'react-icons/ai'
 
@@ -63,9 +62,9 @@ const FeaturedBlogs = () => {
                       </div>
                     </div>
                     <h4>{firstHighestBlog?.title}</h4>
-                    <p className={classes.blogDesc}>
+                    {/* <p className={classes.blogDesc}>
                         {firstHighestBlog?.desc}
-                    </p>
+                    </p> */}
                     <div className={classes.authorAndCreatedAt}>
                         <span><span>Author:</span> {firstHighestBlog?.userId?.username}</span>
                         <span><span>Created:</span> {format(firstHighestBlog?.createdAt)}</span>
@@ -84,9 +83,9 @@ const FeaturedBlogs = () => {
                   </Link>               
                   <div className={classes.secondaryBlogData}>
                     <h4>{secondHighestBlog?.title}</h4>
-                      <p className={classes.desc}>
+                      {/* <p className={classes.desc}>
                         {secondHighestBlog?.desc}
-                      </p>
+                      </p> */}
                       <div className={classes.authorAndCreatedAt}>
                         <span><span>Author:</span> {secondHighestBlog?.userId?.username}</span>
                         <span><span>Created:</span> {format(secondHighestBlog?.createdAt)}</span>
@@ -103,11 +102,11 @@ const FeaturedBlogs = () => {
                   </Link>                
                   <div className={classes.secondaryBlogData}>
                     <h4>{thirdHighestBlog?.title}</h4>
-                      <p className={classes.desc}>
+                      {/* <p className={classes.desc}>
                         {thirdHighestBlog?.desc}
-                      </p>
+                      </p> */}
                       <div className={classes.authorAndCreatedAt}>
-                        <span><span>Author:</span> {thirdHighestBlog?.userId?.username}</span>
+                        <span><span  className={classes.author} >Author:</span> {thirdHighestBlog?.userId?.username}</span>
                         <span><span>Created:</span> {format(thirdHighestBlog?.createdAt)}</span>
                     </div>
                 </div>

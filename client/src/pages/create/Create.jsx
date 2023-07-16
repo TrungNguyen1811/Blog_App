@@ -22,7 +22,7 @@ const Create = () => {
     'travel',
     'design',
     'programming',
-    'fun',
+    'univer',
     'fashion'
   ]
 
@@ -93,9 +93,8 @@ const Create = () => {
             </div>
             <div className={classes.inputWrapper}>
               <label>Description: </label>
-              <input
-                type="text"
-                placeholder='Description...'
+              <textarea
+                placeholder="Description..."
                 className={classes.input}
                 onChange={(e) => setDesc(e.target.value)}
               />

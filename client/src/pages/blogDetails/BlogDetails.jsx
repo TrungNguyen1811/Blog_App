@@ -23,7 +23,7 @@ const BlogDetails = () => {
         const options = { 'Authorization': `Bearer ${token}` }
         const data = await request(`/blog/find/${id}`, 'GET', options)
         setBlogDetails(data)
-        setIsLiked(data.likes.includes(user._id))
+        setIsLiked(data.likes && data.likes.includes(user._id))
       } catch (error) {
         console.error(error)
       }

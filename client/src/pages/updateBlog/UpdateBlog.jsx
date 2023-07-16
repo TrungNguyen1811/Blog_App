@@ -24,7 +24,7 @@ const UpdateBlog = () => {
     'travel',
     'design',
     'programming',
-    'fun',
+    'univer',
     'fashion'
   ]
 
@@ -74,7 +74,7 @@ const UpdateBlog = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <input
+            <textarea
               type="text"
               placeholder='Description...'
               value={desc}

@@ -20,7 +20,7 @@ const Categories = () => {
     'travel',
     'design',
     'programming',
-    'fun',
+    'univer',
     'fashion'
   ]
   const [currentPage, setCurrentPage] = useState(1);

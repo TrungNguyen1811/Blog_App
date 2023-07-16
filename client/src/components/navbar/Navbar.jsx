@@ -3,18 +3,18 @@ import classes from './navbar.module.css'
 import { Link } from 'react-router-dom'
 import avt from '../../assets/avt.jpg'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../redux/authSlice'
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth) // Lấy thông tin user từ Redux store
 
   const handleLogout = () => {
     dispatch(logout()) // Gọi action logout từ Redux
     // Thực hiện các bước logout khác nếu cần
   }
-
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
@@ -37,6 +37,7 @@ const Navbar = () => {
         </ul> */}
         <div className={classes.right}>
           <img onClick={() => setShowModal(prev => !prev)} src={avt} className={classes.img} />
+          {user && <span>{user.username}</span>} {/* Hiển thị username nếu user tồn tại */}
           {showModal &&
             <div className={classes.modal}>
               <Link to='/create'>Create</Link>
