@@ -31,5 +31,5 @@ export const { register, login, logout } = authSlice.actions
 
 export default authSlice.reducer
 
-
+// Slice này giúp quản lý trạng thái liên quan đến xác thực và quyền truy cập người dùng trong ứng dụng. 
 // variables and function that change the variables, and they are both available in the all components

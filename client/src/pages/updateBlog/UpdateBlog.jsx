@@ -66,26 +66,38 @@ const UpdateBlog = () => {
       <Navbar />
       <div className={classes.container}>
         <div className={classes.wrapper}>
-          <h2>Update Blog</h2>
+          <h2 className={classes.title}>Update Blog</h2>
           <form onSubmit={handleUpdateBlog}>
-            <input
-              type="text"
-              placeholder='Title...'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <textarea
-              type="text"
-              placeholder='Description...'
-              value={desc}
-              onChange={(e) => setDesc(e.target.value)}
-            />
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-              {categories.map((category) => (
-                <option key={crypto.randomUUID()} value={category}>{category}</option>
-              ))}
-            </select>
-            <button type="submit">Update</button>
+            <div className={classes.inputWrapper}>
+              <label>Title: </label>
+              <input
+                  className={classes.input}
+                  type="text"
+                  placeholder='Title...'
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+            </div>
+            <div className={classes.inputWrapper}>
+              <label>Description: </label>
+              <textarea
+                  className={classes.input}
+                  placeholder='Description...'
+                  value={desc}
+                  onChange={(e) => setDesc(e.target.value)}
+                />
+            </div>
+            <div className={classes.inputWrapperSelect}>
+              <label>Category: </label>
+              <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                {categories.map((category) => (
+                  <option key={crypto.randomUUID()} value={category}>{category}</option>
+                ))}
+              </select>
+            </div>
+            <div className={classes.buttonWrapper}>
+              <button className={classes.submitBtn}  type="submit">Update</button>
+            </div>
           </form>
         </div>
       </div>

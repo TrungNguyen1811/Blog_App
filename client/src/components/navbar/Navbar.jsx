@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <div className={classes.left}>
-          <Link to='/'>Blog Note</Link>
+          <Link to='/'>Blog Fact</Link>
         </div>
         <nav>
           <ul className={classes.center}>
@@ -29,12 +29,6 @@ const Navbar = () => {
             <li className={classes.listItem}><a href='#Categories' className={classes.listItem}>Categories</a></li>
           </ul>
         </nav>
-        {/* <ul className={classes.center}>
-          <li className={classes.listItem}><Link to='/' className={classes.listItem}>Home</Link></li>
-          <li className={classes.listItem}><Link to='/FeaturedBlogs' className={classes.listItem}>About</Link></li>
-          <li className={classes.listItem}><Link to='/Newsletter' className={classes.listItem}>Contacts</Link></li>
-          <li className={classes.listItem}><Link to='/Categories' className={classes.listItem}>Categories</Link></li>
-        </ul> */}
         <div className={classes.right}>
           <img onClick={() => setShowModal(prev => !prev)} src={avt} className={classes.img} />
           {user && <span>{user.username}</span>} {/* Hiển thị username nếu user tồn tại */}
